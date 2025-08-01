@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTW PROJECT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Секция 1: Видео на весь экран -->
+    <section class="hero-video">
+        <video src="cursed world.mp4" autoplay muted loop></video>
+        <div class="effects"></div>
+        <div class="hero-content">
+            <h1>WELCOME TO ADAPTER</h1>
+        </div>
+    </section>
+
+    <!-- Секция 2: Контент с кнопками -->
+    <section class="buttons-section">
+        <div class="owners">
+            <h2>Owners (Telegram)</h2>
+        </div>
+
+        <!-- Панель с владельцами -->
+        <div class="telegram-panel">
+            <div class="telegram-owner">
+                <img src="shitholia.jpg" alt="Avatar for @shitholia" class="avatar">
+                <span onclick="window.open('https://t.me/shitholia', '_blank')">@shitholia</span>
+            </div>
+            <div class="telegram-owner">
+                <img src="fucknordov.jpg" alt="Avatar for @fucknordov" class="avatar">
+                <span onclick="window.open('https://t.me/fucknordov', '_blank')">@fucknordov</span>
+            </div>
+        </div>
+        <!-- Кнопки действий -->
+        <div class="btn-row">
+            <a href="https://t.me/htw_project" class="btn-new btn-left" target="_blank">Telegram Bots</a>
+            <a href="https://t.me/htw_news" class="btn-new btn-main" target="_blank">Global Channel</a>
+            <a href="https://t.me/adapter_ai" class="btn-new btn-right" target="_blank">Subscribe</a>
+        </div>
+    </section>
+
+    <!-- Футер с юридическими ссылками -->
+    <div class="footer">
+        <button id="privacy-btn" class="privacy-button">Политика конфиденциальности</button>
+        <span class="footer-separator">|</span>
+        <button id="terms-btn" class="privacy-button">Условия использования</button>
+    </div>
+
+    <!-- Модальное окно: Политика конфиденциальности -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="privacy">&times;</span>
+            <h3>Политика конфиденциальности</h3>
+            <p>
+                Настоящая политика описывает, как проект <strong>Adapter</strong>
+                обращается с информацией при использовании сайта.
+            </p>
+            <p>
+                Мы не собираем персональные данные. Все взаимодействия происходят через Telegram.
+                Никакая информация не сохраняется на серверах.
+            </p>
+            <p>
+                Сайт использует только технические cookies для корректной работы видео и анимаций.
+            </p>
+            <p><strong>Дата обновления: 1 августа 2025</strong></p>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Условия использования -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="terms">&times;</span>
+            <h3>Условия использования</h3>
+            <p>
+                Используя сайт <strong>Adapter</strong>, вы соглашаетесь со следующим:
+            </p>
+            <ul>
+                <li>Сайт носит информационный характер.</li>
+                <li>Мы не несём ответственности за действия, основанные на информации с сайта.</li>
+                <li>Запрещено копирование контента проекта без разрешения.</li>
+                <li>Все торговые марки принадлежат их владельцам.</li>
+                <li>Пользуясь сайтом вы принимаете Политику Конфиденциальности</li>
+                
+            </ul>
+            <p>
+                Мы оставляем право вносить изменения без уведомления.
+            </p>
+            <p>
+                В ином случае, просим прекратить использование нашего сайта
+            </p>
+            <p><strong>Дата вступления в силу: 1 августа 2025</strong></p>
+        </div>
+    </div>
+
+    <!-- JavaScript для модальных окон -->
+    <script>
+        const privacyModal = document.getElementById("privacy-modal");
+        const termsModal = document.getElementById("terms-modal");
+
+        const privacyBtn = document.getElementById("privacy-btn");
+        const termsBtn = document.getElementById("terms-btn");
+
+        const closeButtons = document.getElementsByClassName("close");
+
+        privacyBtn.onclick = () => { privacyModal.style.display = "flex"; };
+        termsBtn.onclick = () => { termsModal.style.display = "flex"; };
+
+        for (let btn of closeButtons) {
+            btn.onclick = function() {
+                const modal = this.closest('.modal');
+                modal.style.display = "none";
+            };
+        }
+
+        window.onclick = (event) => {
+            if (event.target === privacyModal) privacyModal.style.display = "none";
+            if (event.target === termsModal) termsModal.style.display = "none";
+        };
+    </script>
+
+</body>
+</html>
